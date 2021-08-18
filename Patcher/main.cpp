@@ -1,4 +1,5 @@
 #include <Windows.h>
+#include <thread>
 #include <string>
 #include <iostream>
 #include "Patches/PatchManager.h"
@@ -25,7 +26,7 @@ extern "C" __declspec(dllexport) bool __stdcall DllMain(
     switch( fdwReason ) 
     { 
         case DLL_PROCESS_ATTACH:
-            initialize();
+            std::thread(initialize).detach();
             break;
     }
     return TRUE;  // Successful DLL_PROCESS_ATTACH.

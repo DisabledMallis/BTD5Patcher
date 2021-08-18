@@ -6,11 +6,10 @@ namespace Patcher
     {
         namespace CBasePositionableObject
         {
-            uint64_t o_func;
             uint64_t totalCreations = 0;
             void* __fastcall cb_hook(void* object) {
                 totalCreations++;
-                void* result = PLH::FnCast(o_func, &cb_hook)(object);
+                void* result = PLH::FnCast(Constructor::funcOriginal, &cb_hook)(object);
                 return result;
             }
 

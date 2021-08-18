@@ -12,8 +12,8 @@ namespace Patcher
         {
             class Constructor : public IPatch
             {
-				uintptr_t funcOriginal = 0;
             public:
+				static inline uintptr_t funcOriginal;
                 Constructor();
                 auto Apply() -> bool override;
             };

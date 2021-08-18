@@ -1,5 +1,5 @@
-#ifndef NKHOOK5_PATCHES_CBLOONSTD5GAME_CONSTRUCTOR
-#define NKHOOK5_PATCHES_CBLOONSTD5GAME_CONSTRUCTOR
+#ifndef PATCHER_PATCHES_CBLOONSTD5GAME_CONSTRUCTOR
+#define PATCHER_PATCHES_CBLOONSTD5GAME_CONSTRUCTOR
 
 #include "../IPatch.h"
 #include "../../Utils.h"
@@ -12,8 +12,8 @@ namespace Patcher
         {
             class Constructor : public IPatch
             {
-				uintptr_t funcOriginal = 0;
             public:
+				static inline uintptr_t funcOriginal;
                 Constructor();
                 auto Apply() -> bool override;
             };
@@ -22,4 +22,4 @@ namespace Patcher
     } // namespace Patches
     
 } // namespace NKHook5
-#endif /* NKHOOK5_PATCHES_CBLOONSTD5GAME_CONSTRUCTOR */
+#endif /* PATCHER_PATCHES_CBLOONSTD5GAME_CONSTRUCTOR */

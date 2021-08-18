@@ -61,7 +61,7 @@ auto IPatch::GetName() -> std::string
 }
 auto IPatch::GetDis() -> PLH::CapstoneDisassembler
 {
-    return PLH::CapstoneDisassembler(PLH::Mode::x64);
+    return PLH::CapstoneDisassembler(PLH::Mode::x86);
 }
 auto IPatch::Apply() -> bool
 {
