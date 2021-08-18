@@ -1,3 +1,3 @@
-target_sources(NKHook5 PRIVATE 
+target_sources(Patcher PRIVATE 
     "Constructor.cpp"
 )
