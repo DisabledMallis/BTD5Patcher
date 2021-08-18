@@ -1,5 +1,5 @@
-#ifndef PATCHER_PATCHES_CBLOONSTD5GAME_CONSTRUCTOR
-#define PATCHER_PATCHES_CBLOONSTD5GAME_CONSTRUCTOR
+#ifndef PATCHER_PATCHES_GLOBAL_CALCSLEEPTIME
+#define PATCHER_PATCHES_GLOBAL_CALCSLEEPTIME
 
 #include "../IPatch.h"
 #include "../../Utils.h"
@@ -8,18 +8,19 @@ namespace Patcher
 {
     namespace Patches
     {
-        namespace CBloonsTD5Game
+        namespace Global
         {
-            class Constructor : public IPatch
+            class CalcSleepTime : public IPatch
             {
             public:
 				static inline uintptr_t funcOriginal;
-                Constructor();
+                CalcSleepTime();
                 auto Apply() -> bool override;
             };
-        } // namespace CBloonsTD5Game
+        } // namespace Global
         
     } // namespace Patches
     
 } // namespace Patcher
-#endif /* PATCHER_PATCHES_CBLOONSTD5GAME_CONSTRUCTOR */
+
+#endif /* PATCHER_PATCHES_GLOBAL_CALCSLEEPTIME */
