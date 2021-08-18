@@ -18,8 +18,7 @@ This command will update all of the required submodules.
 Now that PLH is updated, we need to build it. This can be done with the following commands:
 ```
 cd Patcher/Lib/PolyHook_2_0
-cmake -A Win32 .
-cmake -B"./_build" -DCMAKE_INSTALL_PREFIX="./_install/" -DPOLYHOOK_BUILD_SHARED_LIB=ON
+cmake -A Win32 -B"./_build" -DCMAKE_INSTALL_PREFIX="./_install/" -DPOLYHOOK_BUILD_SHARED_LIB=ON
 cmake --build "./_build" --config Release --target INSTALL
 ```
 
