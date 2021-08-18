@@ -14,25 +14,14 @@ namespace Patcher
                 return result;
             }
 
+			Constructor::Constructor() : IPatch("CBasePositionableObject::Constructor")
+			{
+				this->AddSignature(new SigInfo(new std::string("56 57 8B F9 0F 57 ?? 8D"), 0));
+			}
+
             auto Constructor::Apply() -> bool
             {
-                const uintptr_t address = Patcher::Utils::FindPattern("56 57 8B F9 0F 57 ?? 8D");
-                if(address)
-                {
-                    PLH::x86Detour* detour = new PLH::x86Detour(address, (const uintptr_t)&cb_hook, &o_func, GetDis());
-                    if(detour->hook())
-                    {
-                        return true;
-                    }
-                    else
-                    {
-                        return false;
-                    }
-                }
-                else
-                {
-                    return false;
-                }
+                return this->AutoPatch(cb_hook, &funcOriginal);
             }
         } // namespace CBasePositionableObject
     }

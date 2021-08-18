@@ -12,11 +12,9 @@ namespace Patcher
         {
             class Constructor : public IPatch
             {
+				uintptr_t funcOriginal = 0;
             public:
-                Constructor() : IPatch("CBasePositionableObject::Constructor")
-                {
-
-                }
+                Constructor();
                 auto Apply() -> bool override;
             };
         } // namespace CBloonsTD5Game
