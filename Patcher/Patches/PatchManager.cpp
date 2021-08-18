@@ -4,7 +4,7 @@
 #include "CBloonsTD5Game/Constructor.h"
 #include "CBasePositionableObject/Constructor.h"
 
-using namespace NKHook5::Patches;
+using namespace Patcher::Patches;
 
 void PatchManager::ApplyAll()
 {

@@ -4,13 +4,13 @@
 #include "Patches/PatchManager.h"
 
 auto initialize() -> int {
-    std::cout << "Loading NKHook5..." << std::endl;
+    std::cout << "Loading Patcher..." << std::endl;
 
     std::cout << "Loading all patches..." << std::endl;
-    NKHook5::Patches::PatchManager::ApplyAll();
+    Patcher::Patches::PatchManager::ApplyAll();
     std::cout << "All patches loaded!" << std::endl;
 
-    std::cout << "Loaded NKHook5!" << std::endl;
+    std::cout << "Loaded Patcher!" << std::endl;
 
     return 0;
 }

@@ -2,7 +2,7 @@
 #define NKHOOK5_PATCHES_PATCHMANAGER
 #include <vector>
 
-namespace NKHook5
+namespace Patcher
 {
     namespace Patches
     {

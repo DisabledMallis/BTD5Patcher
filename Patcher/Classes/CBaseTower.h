@@ -2,7 +2,7 @@
 #define NKHOOK5_CLASSES_CBASETOWER
 #include "CBasePositionableObject.h"
 
-namespace NKHook5
+namespace Patcher
 {
     namespace Classes
     {
@@ -14,5 +14,5 @@ namespace NKHook5
         
     } // namespace Classes
     
-} // namespace NKHook5
+} // namespace Patcher
 #endif /* NKHOOK5_CLASSES_CBASETOWER */

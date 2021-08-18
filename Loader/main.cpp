@@ -30,8 +30,8 @@ auto initialize() -> int {
     InternetGetConnectedState_orig = (int(__stdcall*)(int,int))GetProcAddress(winINet, "InternetGetConnectedState");
     std::cout << "WinINet loaded" << std::endl;
 
-    std::cout << "Launching NKHook5.dll..." << std::endl;
-    LoadLibraryA("NKHook5.dll");
+    std::cout << "Launching Patcher.dll..." << std::endl;
+    LoadLibraryA("Patcher.dll");
 
     return 0;
 }

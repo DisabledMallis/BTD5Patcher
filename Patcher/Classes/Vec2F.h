@@ -1,6 +1,6 @@
 #ifndef NKHOOK5_CLASSES_VEC2F
 #define NKHOOK5_CLASSES_VEC2F
-namespace NKHook5
+namespace Patcher
 {
     namespace Classes
     {

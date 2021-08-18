@@ -11,7 +11,7 @@
 #pragma comment(lib,"Zydis.lib")
 #pragma comment(lib,"Zycore.lib")
 
-namespace NKHook5
+namespace Patcher
 {
     namespace Patches
     {

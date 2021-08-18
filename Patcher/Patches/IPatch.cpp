@@ -1,6 +1,6 @@
 #include "IPatch.h"
 
-using namespace NKHook5::Patches;
+using namespace Patcher::Patches;
 
 IPatch::IPatch(std::string name)
 {

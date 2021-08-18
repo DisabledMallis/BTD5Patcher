@@ -1,12 +1,12 @@
-#ifndef NKHOOK5_UTILS
-#define NKHOOK5_UTILS
+#ifndef PATCHER_UTILS
+#define PATCHER_UTILS
 
 #include <Windows.h>
 #include <Psapi.h>
 #include <tlhelp32.h>
 #include <string>
 
-namespace NKHook5
+namespace Patcher
 {
 	class Utils {
 	public:
@@ -20,4 +20,4 @@ namespace NKHook5
 		static auto GetTypeName(void* object) -> std::string;
 	};
 }
-#endif /* NKHOOK5_UTILS */
+#endif /* PATCHER_UTILS */

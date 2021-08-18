@@ -6,7 +6,7 @@
 #include "Vec3F.h"
 #include "Color.h"
 
-namespace NKHook5
+namespace Patcher
 {
     namespace Classes
     {

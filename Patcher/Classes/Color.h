@@ -1,6 +1,6 @@
 #ifndef NKHOOK5_CLASSES_COLOR
 #define NKHOOK5_CLASSES_COLOR
-namespace NKHook5
+namespace Patcher
 {
     namespace Classes
     {
@@ -15,5 +15,5 @@ namespace NKHook5
         };
     } // namespace Classes
     
-} // namespace NKHook5
+} // namespace Patcher
 #endif /* NKHOOK5_CLASSES_COLOR */

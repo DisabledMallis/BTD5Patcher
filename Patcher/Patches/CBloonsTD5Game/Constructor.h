@@ -4,7 +4,7 @@
 #include "../IPatch.h"
 #include "../../Utils.h"
 
-namespace NKHook5
+namespace Patcher
 {
     namespace Patches
     {
