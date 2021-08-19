@@ -9,7 +9,7 @@ namespace Patcher
             uint64_t totalCreations = 0;
             void* __fastcall cb_hook(void* object) {
                 totalCreations++;
-                void* result = PLH::FnCast(Constructor::funcOriginal, &cb_hook)(object);
+                void* result = PLH::FnCast(Constructor::funcOriginal, cb_hook)(object);
                 return result;
             }
 

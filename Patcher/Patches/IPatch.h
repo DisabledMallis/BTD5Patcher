@@ -27,7 +27,7 @@ namespace Patcher
         class IPatch
         {
             //The main disasembler
-			static inline PLH::CapstoneDisassembler* dis = new PLH::CapstoneDisassembler(PLH::Mode::x64);
+			static inline PLH::CapstoneDisassembler* dis = new PLH::CapstoneDisassembler(PLH::Mode::x86);
 
 			//Patch metadata
 			std::string name;

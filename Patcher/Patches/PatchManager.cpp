@@ -9,7 +9,7 @@ using namespace Patcher::Patches;
 
 void PatchManager::ApplyAll()
 {
-    PatchManager::ApplyPatch(new CBloonsTD5Game::Constructor());
+    //PatchManager::ApplyPatch(new CBloonsTD5Game::Constructor());
     PatchManager::ApplyPatch(new CBasePositionableObject::Constructor());
 	PatchManager::ApplyPatch(new Global::CalcSleepTime());
 }
