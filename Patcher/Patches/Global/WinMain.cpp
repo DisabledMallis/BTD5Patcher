@@ -31,8 +31,8 @@ namespace Patcher
 				std::cout << "Don't ask Ninja Kiwi for support with this, please." << std::endl;
 
 				//TODO: Config related things
-				Config* conf = Config::getConfig();
-				std::cout << *conf << std::endl;
+				Config conf = Config::getConfig();
+				std::cout << conf << std::endl;
 
 				//Apply all hooks & patches
 				std::cout << "Loading all patches..." << std::endl;

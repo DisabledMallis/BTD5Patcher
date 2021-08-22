@@ -10,9 +10,9 @@
 using namespace Patcher;
 
 auto bootstrapPatcher() -> int {
-	Config* conf = Config::getConfig();
+	Config conf = Config::getConfig();
 	//If the user doesn't want us patching, we shouldn't bootstrap & patch the game.
-	if(!(*conf)["patch"]) {
+	if(!conf.at("patch").get<bool>()) {
 		std::cout << "Patcher injection cancelled because the config value \"patch\" was set to false." << std::endl;
 		SetConsoleTitleA("The bootstapper was cancelled. You may close this window.");
 		FreeConsole();

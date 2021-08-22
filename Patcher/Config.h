@@ -8,7 +8,7 @@ class Config : public nlohmann::json {
 	static void createConfig();
 	static bool fileExists();
 public:
-	static auto getConfig() -> Config*;
+	static auto getConfig() -> Config&;
 };
 
 #endif /* PATCHER_CONFIG */

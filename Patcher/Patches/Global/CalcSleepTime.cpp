@@ -18,8 +18,8 @@ namespace Patcher
 
 			CalcSleepTime::CalcSleepTime() : IPatch("Global::CalcSleepTime") {
 				//Read config file val
-				Config* conf = Config::getConfig();
-				remove_cap = (*conf)["remove_fps_cap"];
+				Config conf = Config::getConfig();
+				remove_cap = conf.at("remove_fps_cap").get<bool>();
 
 				//Sigs for de func
 				this->AddSignature(new SigInfo(new std::string("b9 01 00 00 00 f2 0f 10 2d ?? ?? ?? ?? eb 1c b9 04"), 0));

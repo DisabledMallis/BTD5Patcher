@@ -11,6 +11,7 @@ void Config::createConfig() {
 	std::ofstream configFile("config.json");
 	Config conf;
 	conf["patch"] = true;
+	conf["profile"] = "Default Profile";
 	conf["remove_fps_cap"] = true;
 	configFile << std::setw(4) << conf;
 	configFile.flush();
@@ -22,9 +23,9 @@ bool Config::fileExists() {
 	return std::filesystem::exists(configPath);
 }
 
-auto Config::getConfig() -> Config* {
+auto Config::getConfig() -> Config& {
 	if(instance) {
-		return instance;
+		return *instance;
 	}
 
 	instance = new Config();
@@ -37,5 +38,5 @@ auto Config::getConfig() -> Config* {
 	configFile >> *instance;
 	configFile.close();
 
-	return instance;
+	return *instance;
 }
