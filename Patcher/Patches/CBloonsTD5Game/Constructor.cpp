@@ -1,6 +1,7 @@
 #include "Constructor.h"
 
 #include "../../Classes/CBloonsTD5Game.h"
+#include "../../Classes/CBasePositionableObject.h"
 
 namespace Patcher
 {
@@ -12,6 +13,8 @@ namespace Patcher
             Classes::CBloonsTD5Game* __fastcall cb_hook(Classes::CBloonsTD5Game* gameInstance) {
                 std::cout << "Gameinstance created: " << gameInstance << std::endl;
                	Classes::CBloonsTD5Game* result = PLH::FnCast(Constructor::funcOriginal, cb_hook)(gameInstance);
+				Classes::CBasePositionableObject* obj = new Classes::CBasePositionableObject();
+				std::cout << "Custom CBPO: " << obj << std::endl;
 				return result;
             }
 

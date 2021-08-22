@@ -32,8 +32,22 @@ auto Patcher::Utils::FindPattern(const char* pattern) -> void*
 	return FindPattern(GetModuleBase(), GetBaseModuleEnd(), pattern);
 }
 
+struct SearchedSig {
+	std::string pattern;
+	void* result;
+	SearchedSig(std::string pattern, void* result) {
+		this->pattern = pattern;
+		this->result = result;
+	}
+};
+std::vector<SearchedSig> alreadySearched = std::vector<SearchedSig>();
 auto Patcher::Utils::FindPattern(int rangeStart, int rangeEnd, const char* pattern) -> void*
 {
+	for(int i = 0; i < alreadySearched.size(); i++) {
+		if(alreadySearched[i].pattern == std::string(pattern)) {
+			return alreadySearched[i].result;
+		}
+	}
 	const char* pat = pattern;
 	void* firstMatch = 0;
 	for (int pCur = rangeStart; pCur < rangeEnd; pCur++)
@@ -41,7 +55,10 @@ auto Patcher::Utils::FindPattern(int rangeStart, int rangeEnd, const char* patte
 		if (!*pat) return firstMatch;
 		if (*(PBYTE)pat == '\?' || *(BYTE*)pCur == getByte(pat)) {
 			if (!firstMatch) firstMatch = *(void**)&pCur;
-			if (!pat[2]) return firstMatch;
+			if (!pat[2]) {
+				alreadySearched.push_back(SearchedSig(std::string(pattern), firstMatch));
+				return firstMatch;
+			};
 			if (*(PWORD)pat == '\?\?' || *(PBYTE)pat != '\?') pat += 3;
 			else pat += 2;	//one ?
 		}
