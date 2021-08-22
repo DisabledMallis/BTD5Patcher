@@ -13,7 +13,7 @@ namespace Patcher
             class CalcSleepTime : public IPatch
             {
             public:
-				static inline uintptr_t funcOriginal;
+				static uintptr_t funcOriginal;
                 CalcSleepTime();
                 auto Apply() -> bool override;
             };

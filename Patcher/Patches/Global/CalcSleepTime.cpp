@@ -1,22 +1,18 @@
 #include "CalcSleepTime.h"
 
-#define NO_FPS_LIMIT
-
 namespace Patcher
 {
     namespace Patches
     {
         namespace Global
         {
+			bool limitFps = false;
+			uintptr_t CalcSleepTime::funcOriginal = 0;
             int __cdecl cb_hook() {
-                int sleepTime = PLH::FnCast(CalcSleepTime::funcOriginal, &cb_hook)();
-                std::cout << "Current sleep time: " << sleepTime << std::endl;
-				#ifdef NO_FPS_LIMIT
-                std::cout << "Overridden sleep time" << std::endl;
-				return 1;
-				#else
-				return sleepTime;
-				#endif
+				if(limitFps) {
+					return PLH::FnCast(CalcSleepTime::funcOriginal, &cb_hook)();
+				}
+                return 1;
             }
 
 			CalcSleepTime::CalcSleepTime() : IPatch("Global::CalcSleepTime") {
