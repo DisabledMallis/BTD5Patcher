@@ -4,6 +4,7 @@
 #include "CBloonsTD5Game/Constructor.h"
 #include "CBasePositionableObject/Constructor.h"
 #include "Global/CalcSleepTime.h"
+#include "Win32/LoadStringWHook.h"
 
 using namespace Patcher::Patches;
 
@@ -12,6 +13,7 @@ void PatchManager::ApplyAll()
     PatchManager::ApplyPatch(new CBloonsTD5Game::Constructor());
     PatchManager::ApplyPatch(new CBasePositionableObject::Constructor());
 	PatchManager::ApplyPatch(new Global::CalcSleepTime());
+	PatchManager::ApplyPatch(new Win32::LoadStringWHook());
 }
 
 void PatchManager::ApplyPatch(IPatch* toAdd)

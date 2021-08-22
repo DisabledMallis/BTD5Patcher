@@ -1,3 +1,6 @@
 [submodule "Patcher/Lib/PolyHook_2_0"]
 	path = Patcher/Lib/PolyHook_2_0
 	url = https://github.com/stevemk14ebr/PolyHook_2_0.git
+[submodule "Patcher/Lib/json"]
+	path = Patcher/Lib/json
+	url = https://github.com/nlohmann/json.git

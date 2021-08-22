@@ -19,6 +19,7 @@ add_subdirectory(Patches)
 add_subdirectory(Classes)
 
 target_include_directories(Patcher PRIVATE "${CMAKE_CURRENT_LIST_DIR}/Lib/PolyHook_2_0/_install/include")
+target_include_directories(Patcher PRIVATE "${CMAKE_CURRENT_LIST_DIR}/Lib/json/include")
 
 message("${CMAKE_CURRENT_LIST_DIR}")
 

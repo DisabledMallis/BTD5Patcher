@@ -1,5 +1,7 @@
 #include "Constructor.h"
 
+#include "../../Classes/CBloonsTD5Game.h"
+
 namespace Patcher
 {
     namespace Patches
@@ -7,9 +9,9 @@ namespace Patcher
         namespace CBloonsTD5Game
         {
 			uintptr_t Constructor::funcOriginal = 0;
-            void* __fastcall cb_hook(void* gameInstance) {
+            Classes::CBloonsTD5Game* __fastcall cb_hook(Classes::CBloonsTD5Game* gameInstance) {
                 std::cout << "Gameinstance created: " << gameInstance << std::endl;
-               	void* result = PLH::FnCast(Constructor::funcOriginal, cb_hook)(gameInstance);
+               	Classes::CBloonsTD5Game* result = PLH::FnCast(Constructor::funcOriginal, cb_hook)(gameInstance);
 				return result;
             }
 

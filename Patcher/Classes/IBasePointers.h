@@ -1,8 +1,6 @@
 #ifndef NKHOOK5_CLASSES_IBASEPOINTERS
 #define NKHOOK5_CLASSES_IBASEPOINTERS
 
-#include "CBloonsTD5Game.h"
-
 namespace Patcher
 {
     namespace Classes
@@ -12,7 +10,7 @@ namespace Patcher
 		public:
 			struct CTextureLoader * CTextureLoader;
 			struct WinInput * WinInput;
-			CBloonsTD5Game* CBloonsTD5Game;
+			struct CBloonsTD5Game* CBloonsTD5Game;
 			struct CXmlFontImporter * CXmlFontImporter;
 			struct WinFileIO* WinFileIO;
 			struct CScreenManager* CScreenManager;

@@ -9,6 +9,7 @@
 using namespace Patcher;
 
 auto bootstrapPatcher() -> int {
+	SetConsoleTitleA("Hooking main function...");
 	Patches::PatchManager::ApplyPatch(new Patches::Global::WinMain());
 	return 0;
 }

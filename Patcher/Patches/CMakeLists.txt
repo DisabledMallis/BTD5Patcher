@@ -6,3 +6,4 @@ target_sources(Patcher PRIVATE
 add_subdirectory(CBasePositionableObject)
 add_subdirectory(CBloonsTD5Game)
 add_subdirectory(Global)
+add_subdirectory(Win32)
