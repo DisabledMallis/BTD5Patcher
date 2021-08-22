@@ -5,10 +5,20 @@
 #include "Patches/Global/WinMain.h"
 #include "Patches/PatchManager.h"
 #include "Utils.h"
+#include "Config.h"
 
 using namespace Patcher;
 
 auto bootstrapPatcher() -> int {
+	Config* conf = Config::getConfig();
+	//If the user doesn't want us patching, we shouldn't bootstrap & patch the game.
+	if(!(*conf)["patch"]) {
+		std::cout << "Patcher injection cancelled because the config value \"patch\" was set to false." << std::endl;
+		SetConsoleTitleA("The bootstapper was cancelled. You may close this window.");
+		FreeConsole();
+		FreeLibraryAndExitThread(Utils::GetThisModule(), 0);
+		return 0;
+	}
 	SetConsoleTitleA("Hooking main function...");
 	Patches::PatchManager::ApplyPatch(new Patches::Global::WinMain());
 	return 0;

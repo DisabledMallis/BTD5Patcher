@@ -5,6 +5,7 @@
 #include <Psapi.h>
 #include <tlhelp32.h>
 #include <string>
+#include "Config.h"
 
 namespace Patcher
 {

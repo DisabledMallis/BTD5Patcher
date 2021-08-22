@@ -1,6 +1,7 @@
 #include "WinMain.h"
 
 #include "../PatchManager.h"
+#include "../../Config.h"
 
 namespace Patcher
 {
@@ -30,13 +31,17 @@ namespace Patcher
 				std::cout << "Don't ask Ninja Kiwi for support with this, please." << std::endl;
 
 				//TODO: Config related things
+				Config* conf = Config::getConfig();
+				std::cout << *conf << std::endl;
 
+				//Apply all hooks & patches
 				std::cout << "Loading all patches..." << std::endl;
 				PatchManager::ApplyAll();
 				std::cout << "All patches loaded!" << std::endl;
 
 				std::cout << "Loaded Patcher!" << std::endl;
 				
+				//Complete launch & load game
 				std::cout << "Launching game..." << std::endl;
 				SetConsoleTitleA("Bloons TD5 - Output");
 				return PLH::FnCast(WinMain::funcOriginal, cb_hook)(hInstance, hPrevInstance, lpCmdLine, nCmdShow);
