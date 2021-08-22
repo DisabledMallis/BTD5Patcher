@@ -5,6 +5,7 @@
 #include "CRenderableTextureObject.h"
 #include "CFont.h"
 #include "CTexture.h"
+#include "../Utils.h"
 
 namespace Patcher
 {
@@ -57,6 +58,7 @@ namespace Patcher
 				Constructor(this);
 
 				this->text = text;
+				this->Font = Utils::GetGameInstance()->CFont;
 			}
 			void Constructor(CTextObject* self);
 		}; //Size: 0x0210

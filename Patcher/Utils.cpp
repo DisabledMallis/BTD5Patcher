@@ -78,3 +78,11 @@ auto Patcher::Utils::GetTypeName(void* object) -> std::string
 	char* name = (char*)((size_t)*typeDesc+(sizeof(void*)*3));
 	return std::string(name);
 }
+
+Patcher::Classes::CBloonsTD5Game* Patcher::Utils::gameInstance;
+void Patcher::Utils::SetGameInstance(Classes::CBloonsTD5Game* gameInstance) {
+	Patcher::Utils::gameInstance = gameInstance;
+}
+auto Patcher::Utils::GetGameInstance() -> Classes::CBloonsTD5Game* {
+	return Patcher::Utils::gameInstance;
+}

@@ -12,6 +12,7 @@ namespace Patcher
 			uintptr_t Constructor::funcOriginal = 0;
             Classes::CBloonsTD5Game* __fastcall cb_hook(Classes::CBloonsTD5Game* gameInstance) {
                 std::cout << "Gameinstance created: " << gameInstance << std::endl;
+				Utils::SetGameInstance(gameInstance);
                	Classes::CBloonsTD5Game* result = PLH::FnCast(Constructor::funcOriginal, cb_hook)(gameInstance);
 				return result;
             }

@@ -19,6 +19,7 @@ namespace Patcher
 					brandingText->SetText(&brandText);
 					brandingText->SetXY(0, 0);
 					brandingText->SetWH(100, 100);
+					brandingText->Font = Utils::GetGameInstance()->CFont;
 					std::cout << "Set text properties" << std::endl;
 				}
 				else {

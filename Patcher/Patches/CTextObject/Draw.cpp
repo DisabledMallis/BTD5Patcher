@@ -15,7 +15,7 @@ namespace Patcher
 					fontTexture = object->Texture;
 					std::cout << "Cached font texture at " << fontTexture << std::endl;
 				}
-				else if(!object->Texture) {
+				if(object->Texture == 0) {
 					object->Texture = fontTexture;
 					std::cout << "Used cached font" << std::endl;
 				}
@@ -24,7 +24,7 @@ namespace Patcher
 
 			Draw::Draw() : IPatch("CTextObject::Draw")
 			{
-				this->AddSignature(new SigInfo(new std::string("55 8B EC 6A ?? 68 ?? ?? ?? ?? 64 ?? ?? ?? ?? ?? 50 83 EC ?? A1 34 ?? ?? ?? 33 C5 ?? 45 ?? 53 56 57 50 8D ?? ?? ?? A3 ?? ?? ?? ?? 8B F9 8B ?? ?? 83 EC ?? 8B"), 0));
+				this->AddSignature(new SigInfo(new std::string("68 e9 fb ?? ??"), 0));
 			}
 
             auto Draw::Apply() -> bool
