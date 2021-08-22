@@ -1,5 +1,5 @@
-#ifndef NKHOOK5_CLASSES_CBASETOWER
-#define NKHOOK5_CLASSES_CBASETOWER
+#ifndef PATCHER_CLASSES_CBASETOWER
+#define PATCHER_CLASSES_CBASETOWER
 #include "CBasePositionableObject.h"
 
 namespace Patcher
@@ -15,4 +15,4 @@ namespace Patcher
     } // namespace Classes
     
 } // namespace Patcher
-#endif /* NKHOOK5_CLASSES_CBASETOWER */
+#endif /* PATCHER_CLASSES_CBASETOWER */

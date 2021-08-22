@@ -26,7 +26,7 @@ namespace Patcher
 			Vector2<float> alignment; //0x0090
 			char pad_0098[4]; //0x0098
 			float Angle; //0x009C
-			Vector3<float> Scale; //0x00A0
+			Vector2<float> Scale; //0x00A0
 
 			virtual void Function0() {};
 			virtual void Draw(bool drawChildren) {};

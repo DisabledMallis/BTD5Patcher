@@ -5,126 +5,79 @@ namespace Patcher
 {
     namespace Classes
     {
-		template<class T>
-		class Vector1 {
-			T x;
-		public:
-			Vector1<T>() {
-				this->x = 0;
-			};
-			Vector1<T>(T x) {
-				this->x = x;
-			};
-
-			auto getX() -> T {
-				return this->x;
-			};
-			void setX(T x) {
-				this->x = x;
-			};
-
-			Vector1 operator+(Vector1 other) {
-				return Vector1(this->x + other->x);
-			};
-			Vector1 operator-(Vector1 other) {
-				return Vector1(this->x - other->x);
-			};
-			Vector1 operator*(Vector1 other) {
-				return Vector1(this->x * other->x);
-			};
-			Vector1 operator/(Vector1 other) {
-				return Vector1(this->x / other->x);
-			};
+		template<typename T>
+		struct Vector1
+		{
+			T x = 0;
+			Vector1() = default;
+			Vector1(T x) : x(x) { }
+			Vector1<T> operator+(Vector1<T>& other) const { return Vector1<T>(this->x + other.x); }
+			Vector1<T> operator-(Vector1<T>& other) const { return Vector1<T>(this->x - other.x); }
+			Vector1<T> operator*(Vector1<T>& other) const { return Vector1<T>(this->x * other.x); }
+			Vector1<T> operator/(Vector1<T>& other) const { return Vector1<T>(this->x / other.x); }
+			Vector1<T>& operator+=(Vector1<T>& other) { this->x += other.x; return *this; }
+			Vector1<T>& operator-=(Vector1<T>& other) { this->x -= other.x; return *this; }
+			Vector1<T>& operator*=(Vector1<T>& other) { this->x *= other.x; return *this; }
+			Vector1<T>& operator/=(Vector1<T>& other) { this->x /= other.x; return *this; }
+			Vector1<T> operator+(T other) const { return Vector1<T>(this->x + other); }
+			Vector1<T> operator-(T other) const { return Vector1<T>(this->x - other); }
+			Vector1<T> operator*(T other) const { return Vector1<T>(this->x * other); }
+			Vector1<T> operator/(T other) const { return Vector1<T>(this->x / other); }
+			Vector1<T>& operator+=(T other) { this->x += other; return *this; }
+			Vector1<T>& operator-=(T other) { this->x -= other; return *this; }
+			Vector1<T>& operator*=(T other) { this->x *= other; return *this; }
+			Vector1<T>& operator/=(T other) { this->x /= other; return *this; }
+			T& operator[](int index) { *(this + (index * sizeof(T))); }
 		};
 
-		template<class T>
-		class Vector2 : public Vector1<T> {
-			T y;
-		public:
-			Vector2<T>() : Vector1<T>(0) {
-				this->y = 0;
-			};
-			Vector2<T>(T x, T y) : Vector1<T>(x) {
-				this->y = y;
-			};
-
-			auto getY() -> T {
-				return this->y;
-			};
-			void setY(T y) {
-				this->y = y;
-			};
-			Vector2 operator+(Vector2 other) {
-				return Vector2(
-					this->x + other->x,
-					this->y + other->y
-				);
-			};
-			Vector2 operator-(Vector2 other) {
-				return Vector2(
-					this->x - other->x,
-					this->y - other->y
-				);
-			};
-			Vector2 operator*(Vector2 other) {
-				return Vector2(
-					this->x * other->x,
-					this->y * other->y
-				);
-			};
-			Vector2 operator/(Vector2 other) {
-				return Vector2(
-					this->x / other->x,
-					this->y / other->y
-				);
-			};
+		template<typename T>
+		struct Vector2 : public Vector1<T>
+		{
+			T y = 0;
+			Vector2() = default;
+			Vector2(T x, T y) : Vector1<T>(x), y(y) { }
+			Vector2<T> operator+(Vector2<T>& other) const { return Vector2<T>(this->x + other.x, this->y + other.y); }
+			Vector2<T> operator-(Vector2<T>& other) const { return Vector2<T>(this->x - other.x, this->y - other.y); }
+			Vector2<T> operator*(Vector2<T>& other) const { return Vector2<T>(this->x * other.x, this->y * other.y); }
+			Vector2<T> operator/(Vector2<T>& other) const { return Vector2<T>(this->x / other.x, this->y / other.y); }
+			Vector2<T>& operator+=(Vector2<T>& other) { this->x += other.x; this->y += other.y; return *this; }
+			Vector2<T>& operator-=(Vector2<T>& other) { this->x -= other.x; this->y -= other.y; return *this; }
+			Vector2<T>& operator*=(Vector2<T>& other) { this->x *= other.x; this->y *= other.y; return *this; }
+			Vector2<T>& operator/=(Vector2<T>& other) { this->x /= other.x; this->y /= other.y; return *this; }
+			Vector2<T> operator+(T other) const { return Vector2<T>(this->x + other, this->y + other); }
+			Vector2<T> operator-(T other) const { return Vector2<T>(this->x - other, this->y - other); }
+			Vector2<T> operator*(T other) const { return Vector2<T>(this->x * other, this->y * other); }
+			Vector2<T> operator/(T other) const { return Vector2<T>(this->x / other, this->y / other); }
+			Vector2<T>& operator+=(T other) { this->x += other; this->y += other; return *this; }
+			Vector2<T>& operator-=(T other) { this->x -= other; this->y -= other; return *this; }
+			Vector2<T>& operator*=(T other) { this->x *= other; this->y *= other; return *this; }
+			Vector2<T>& operator/=(T other) { this->x /= other; this->y /= other; return *this; }
+			T& operator[](int index) { *(this + (index * sizeof(T))); }
 		};
 
-		template<class T>
-		class Vector3 : public Vector2<T> {
-			T z;
-		public:
-			Vector3<T>() : Vector2<T>(0, 0) {
-				this->z = 0;
-			};
-			Vector3<T>(T x, T y, T z) : Vector2<T>(x, y) {
-				this->z = z;
-			};
-
-			auto getZ() -> T {
-				return this->z;
-			};
-			void setZ(T z) {
-				this->z = z;
-			};
-			Vector3 operator+(Vector3 other) {
-				return Vector3(
-					this->x + other->x,
-					this->y + other->y,
-					this->z + other->z
-				);
-			};
-			Vector3 operator-(Vector3 other) {
-				return Vector3(
-					this->x - other->x,
-					this->y - other->y,
-					this->z - other->z
-				);
-			};
-			Vector3 operator*(Vector3 other) {
-				return Vector3(
-					this->x * other->x,
-					this->y * other->y,
-					this->z * other->z
-				);
-			};
-			Vector3 operator/(Vector3 other) {
-				return Vector3(
-					this->x / other->x,
-					this->y / other->y,
-					this->z / other->z
-				);
-			};
+		template<typename T>
+		struct Vector3 : public Vector2<T>
+		{
+			T z = 0;
+			Vector3() = default;
+			Vector3(T x, T y, T z) : Vector2<T>(x, y), z(z) { }
+			Vector3<T> operator+(Vector3<T>& other) const { return Vector3<T>(this->x + other.x, this->y + other.y, this->z + other.z); }
+			Vector3<T> operator-(Vector3<T>& other) const { return Vector3<T>(this->x - other.x, this->y - other.y, this->z - other.z); }
+			Vector3<T> operator*(Vector3<T>& other) const { return Vector3<T>(this->x * other.x, this->y * other.y, this->z * other.z); }
+			Vector3<T> operator/(Vector3<T>& other) const { return Vector3<T>(this->x / other.x, this->y / other.y, this->z / other.z); }
+			Vector3<T>& operator+=(Vector3<T>& other) { this->x += other.x; this->y += other.y; this->z += other.z; return *this; }
+			Vector3<T>& operator-=(Vector3<T>& other) { this->x -= other.x; this->y -= other.y; this->z -= other.z; return *this; }
+			Vector3<T>& operator*=(Vector3<T>& other) { this->x *= other.x; this->y *= other.y; this->z *= other.z; return *this; }
+			Vector3<T>& operator/=(Vector3<T>& other) { this->x /= other.x; this->y /= other.y; this->z /= other.z; return *this; }
+			Vector3<T> operator+(T other) const { return Vector3<T>(this->x + other, this->y + other, this->z + other); }
+			Vector3<T> operator-(T other) const { return Vector3<T>(this->x - other, this->y - other, this->z - other); }
+			Vector3<T> operator*(T other) const { return Vector3<T>(this->x * other, this->y * other, this->z * other); }
+			Vector3<T> operator/(T other) const { return Vector3<T>(this->x / other, this->y / other, this->z / other); }
+			Vector3<T>& operator+=(T other) { this->x += other; this->y += other; this->z += other; return *this; }
+			Vector3<T>& operator-=(T other) { this->x -= other; this->y -= other; this->z -= other; return *this; }
+			Vector3<T>& operator*=(T other) { this->x *= other; this->y *= other; this->z *= other; return *this; }
+			Vector3<T>& operator/=(T other) { this->x /= other; this->y /= other; this->z /= other; return *this; }
+			T& operator[](int index) { *(this + (index * sizeof(T))); }
 		};
 	} //namespace Classes
 } //namespace Patcher
