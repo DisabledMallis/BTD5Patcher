@@ -27,20 +27,20 @@ auto Patcher::Utils::GetThisModule() -> HMODULE
 	return GetModuleHandleA("Patcher.dll");
 }
 
-auto Patcher::Utils::FindPattern(const char* pattern) -> int
+auto Patcher::Utils::FindPattern(const char* pattern) -> void*
 {
 	return FindPattern(GetModuleBase(), GetBaseModuleEnd(), pattern);
 }
 
-auto Patcher::Utils::FindPattern(int rangeStart, int rangeEnd, const char* pattern) -> int
+auto Patcher::Utils::FindPattern(int rangeStart, int rangeEnd, const char* pattern) -> void*
 {
 	const char* pat = pattern;
-	DWORD firstMatch = 0;
+	void* firstMatch = 0;
 	for (int pCur = rangeStart; pCur < rangeEnd; pCur++)
 	{
 		if (!*pat) return firstMatch;
 		if (*(PBYTE)pat == '\?' || *(BYTE*)pCur == getByte(pat)) {
-			if (!firstMatch) firstMatch = pCur;
+			if (!firstMatch) firstMatch = *(void**)&pCur;
 			if (!pat[2]) return firstMatch;
 			if (*(PWORD)pat == '\?\?' || *(PBYTE)pat != '\?') pat += 3;
 			else pat += 2;	//one ?

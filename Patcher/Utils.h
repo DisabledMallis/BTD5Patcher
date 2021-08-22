@@ -15,8 +15,8 @@ namespace Patcher
 		static auto GetBaseModuleSize() -> int;
 		static auto GetBaseModuleEnd() -> int;
 		static auto GetThisModule() -> HMODULE;
-		static auto FindPattern(const char* pattern) -> int;
-		static auto FindPattern(int rangeStart, int rangeEnd, const char* pattern) -> int;
+		static auto FindPattern(const char* pattern) -> void*;
+		static auto FindPattern(int rangeStart, int rangeEnd, const char* pattern) -> void*;
 		static auto GetTypeName(void* object) -> std::string;
 	};
 }

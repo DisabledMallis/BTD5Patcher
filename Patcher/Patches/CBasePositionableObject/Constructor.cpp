@@ -6,6 +6,7 @@ namespace Patcher
     {
         namespace CBasePositionableObject
         {
+			uintptr_t Constructor::funcOriginal = 0;
             uint64_t totalCreations = 0;
             void* __fastcall cb_hook(void* object) {
                 totalCreations++;

@@ -47,7 +47,7 @@ namespace Patcher
 			//but result in the wrong func or bad memory
 			void AddSignature(SigInfo* sigInfo);
 			//Scans all sigs in the order
-			auto ScanSigs() -> uintptr_t;
+			auto ScanSigs() -> void*;
 			//The patches name
 			auto GetName() -> std::string;
 			//Returns the polyhook disassembler. You might not need this.
@@ -55,7 +55,7 @@ namespace Patcher
 			//Actually apply the hook
 			virtual auto Apply() -> bool;
 			//Use polyhook to hook the function
-			auto AutoPatch(void* callback, uintptr_t* original) -> bool;
+			auto AutoPatch(void* callback, void* original) -> bool;
         };
     } // namespace Patches
     

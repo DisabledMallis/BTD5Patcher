@@ -2,18 +2,15 @@
 #include <thread>
 #include <string>
 #include <iostream>
+#include "Patches/Global/WinMain.h"
 #include "Patches/PatchManager.h"
+#include "Utils.h"
 
-auto initialize() -> int {
-    std::cout << "Loading Patcher..." << std::endl;
+using namespace Patcher;
 
-    std::cout << "Loading all patches..." << std::endl;
-    Patcher::Patches::PatchManager::ApplyAll();
-    std::cout << "All patches loaded!" << std::endl;
-
-    std::cout << "Loaded Patcher!" << std::endl;
-
-    return 0;
+auto bootstrapPatcher() -> int {
+	Patches::PatchManager::ApplyPatch(new Patches::Global::WinMain());
+	return 0;
 }
 
 
@@ -26,7 +23,7 @@ extern "C" __declspec(dllexport) bool __stdcall DllMain(
     switch( fdwReason ) 
     { 
         case DLL_PROCESS_ATTACH:
-            std::thread(initialize).detach();
+            std::thread(bootstrapPatcher).detach();
             break;
     }
     return TRUE;  // Successful DLL_PROCESS_ATTACH.

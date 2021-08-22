@@ -6,9 +6,11 @@ namespace Patcher
     {
         namespace CBloonsTD5Game
         {
-            void* __stdcall cb_hook(void* gameInstance) {
+			uintptr_t Constructor::funcOriginal = 0;
+            void* __fastcall cb_hook(void* gameInstance) {
                 std::cout << "Gameinstance created: " << gameInstance << std::endl;
-                return PLH::FnCast(Constructor::funcOriginal, cb_hook)(gameInstance);
+               	void* result = PLH::FnCast(Constructor::funcOriginal, cb_hook)(gameInstance);
+				return result;
             }
 
 			Constructor::Constructor() : IPatch("CBloonsTD5Game::Constructor") {
