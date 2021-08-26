@@ -15,6 +15,15 @@ namespace Patcher
 			class CTexture* Texture; //0x00C0
 			char pad_00C4[4]; //0x00C4
 
+			virtual void Function44() {};
+			virtual void Function45() {};
+			virtual void Function46() {};
+			virtual void Function47() {};
+			virtual void Function48() {};
+			virtual void Function49() {};
+			virtual void Function50() {};
+			virtual void SetTexture(CTexture* texture) {};
+			
 			CRenderableTextureObject() : CBasePositionableObject() {
 				Constructor(this);
 			}

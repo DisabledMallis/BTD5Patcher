@@ -8,17 +8,9 @@ namespace Patcher
     {
         namespace CTextObject
         {
-			Classes::CTexture* fontTexture;
 			uintptr_t Draw::funcOriginal = 0;
             void __fastcall cb_hook(Classes::CTextObject* object, bool drawChildren) {
-				if(fontTexture == 0) {
-					fontTexture = object->Texture;
-					std::cout << "Cached font texture at " << fontTexture << std::endl;
-				}
-				if(object->Texture == 0) {
-					object->Texture = fontTexture;
-					std::cout << "Used cached font" << std::endl;
-				}
+				Utils::SetFontTexture(object->Texture);
                 PLH::FnCast(Draw::funcOriginal, cb_hook)(object, drawChildren);
             }
 

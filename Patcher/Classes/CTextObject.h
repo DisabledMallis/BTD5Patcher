@@ -31,17 +31,8 @@ namespace Patcher
 			char pad_0130[4]; //0x0130
 			int zerozerozeroone; //0x0134
 			int onei; //0x0138
-			char pad_013C[64]; //0x013C
+			char pad_013C[28]; //0x013C
 
-
-			virtual void Function44() {};
-			virtual void Function45() {};
-			virtual void Function46() {};
-			virtual void Function47() {};
-			virtual void Function48() {};
-			virtual void Function49() {};
-			virtual void Function50() {};
-			virtual void SetTexture(CTexture* texture) {};
 			virtual void Function52() {};
 			virtual void Function53() {};
 			virtual void Function54() {};
@@ -59,9 +50,10 @@ namespace Patcher
 
 				this->text = text;
 				this->Font = Utils::GetGameInstance()->CFont;
+				this->Texture = Utils::GetFontTexture();
 			}
 			void Constructor(CTextObject* self);
-		}; //Size: 0x0210
+		}; //Size: 0x0154
         
     } // namespace Classes
     

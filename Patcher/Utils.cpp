@@ -86,3 +86,11 @@ void Patcher::Utils::SetGameInstance(Classes::CBloonsTD5Game* gameInstance) {
 auto Patcher::Utils::GetGameInstance() -> Classes::CBloonsTD5Game* {
 	return Patcher::Utils::gameInstance;
 }
+
+Patcher::Classes::CTexture* Patcher::Utils::fontTexture;
+void Patcher::Utils::SetFontTexture(Classes::CTexture* fontTexture) {
+	Patcher::Utils::fontTexture = fontTexture;
+}
+auto Patcher::Utils::GetFontTexture() -> Classes::CTexture* {
+	return Patcher::Utils::fontTexture;
+}

@@ -23,7 +23,7 @@ namespace Patcher
 
 				//Overwrite crash message with custom one
 				char* crashMessage = (char*)Utils::FindPattern("42 6c 6f 6f 6e 73 20 54 44 20 35 20 68"); //Find address of crash message
-#define ERROR_MSG "Bloons TD 5 has crashed while Patcher was loaded. DO NOT REPORT THIS CRASH TO NINJA KIWI!! Ninja Kiwi's code DID NOT cause this crash!" //Macros for crash message data
+#define ERROR_MSG "Bloons TD 5 has crashed while Patcher was loaded. DO NOT REPORT THIS CRASH TO NINJA KIWI!!" //Macros for crash message data
 #define ERROR_MSG_SIZE sizeof ERROR_MSG //Including the length for the copy
 				unprotectMem(crashMessage, ERROR_MSG_SIZE);
 				strcpy_s(crashMessage, ERROR_MSG_SIZE, ERROR_MSG);

@@ -3,6 +3,7 @@
 
 #include "CBasePositionableObject/Constructor.h"
 #include "CBloonsTD5Game/Constructor.h"
+#include "CMainMenuScreen_Tablet/Draw.h"
 #include "CTextObject/Draw.h"
 #include "Global/CalcSleepTime.h"
 #include "Win32/LoadStringWHook.h"
@@ -14,6 +15,7 @@ void PatchManager::ApplyAll()
 {
     PatchManager::ApplyPatch(new CBasePositionableObject::Constructor());
     PatchManager::ApplyPatch(new CBloonsTD5Game::Constructor());
+	PatchManager::ApplyPatch(new CMainMenuScreen_Tablet::Draw());
 	PatchManager::ApplyPatch(new CTextObject::Draw());
 	PatchManager::ApplyPatch(new Global::CalcSleepTime());
 	PatchManager::ApplyPatch(new Win32::LoadStringWHook());

@@ -78,7 +78,7 @@ namespace Patcher
 				Constructor(this);
 			}
 			void Constructor(CBasePositionableObject* self);
-		};
+		}; //Size 0xA8
     } // namespace Classes
 } // namespace NKHook5
 #endif /* PATCHER_CLASSES_CBASEPOSITIONABLEOBJECT */
