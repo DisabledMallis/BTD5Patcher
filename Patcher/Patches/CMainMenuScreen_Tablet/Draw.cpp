@@ -15,21 +15,20 @@ namespace Patcher
 
 			uintptr_t Draw::funcOriginal = 0;
             void __fastcall cb_hook(Classes::CMainMenuScreen_Tablet* baseScreen) {
-				if(!brandingText) {
+				if(brandingText == nullptr) {
 					if(Utils::GetFontTexture() != nullptr) {
 						brandingText = new Classes::CTextObject(brandText);
 						std::cout << "Created text at " << brandingText << std::endl;
-						brandingText->SetText(&brandText);
-						brandingText->SetScale(1, 1);
-						brandingText->SetXY(256, 0);
-						brandingText->SetWH(100, 100);
-						brandingText->SetTexture(Utils::GetFontTexture());
-						
-						std::cout << "Set text properties" << std::endl;
 					}
 				}
 				else {
 					std::cout << "Drawing..." << std::endl;
+					brandingText->SetText(&brandText);
+					brandingText->SetScale(1, 1);
+					brandingText->SetWH(100, 100);
+					brandingText->SetXY(256, 0);
+					brandingText->SetTexture(Utils::GetFontTexture());
+					std::cout << "Set text properties" << std::endl;
 					brandingText->Draw(false);
 					std::cout << "Drawn" << std::endl;
 				}

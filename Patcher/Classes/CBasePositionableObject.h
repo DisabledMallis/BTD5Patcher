@@ -12,21 +12,27 @@ namespace Patcher
         class CBasePositionableObject
 		{
 		public:
-			char pad_0000[8]; //0x0000
+			char pad_0004[8]; //0x0004
 			int onei; //0x000C
-			class CBasePositionableObject* parentObject; //0x0010
-			void* selfPlus14; //0x0014
-			void* selfPlus14_2; //0x0018
+			class CBasePositionableObject *parentObject; //0x0010
+			void *selfPlus14; //0x0014
+			void *selfPlus14_2; //0x0018
 			char pad_001C[4]; //0x001C
-			Vector2<float> size; //0x0020
-			CMatrix CMatrix; //0x0028
-			Vector3<float> Pos;
+			float Width; //0x0020
+			float Height; //0x0024
+			class CMatrix CMatrix; //0x0028
+			float PosX; //0x0068
+			float PosY; //0x006C
+			float PosZ; //0x0070
 			float onef; //0x0074
 			char pad_0078[24]; //0x0078
-			Vector2<float> alignment; //0x0090
+			float AlignmentX; //0x0090
+			float AlignmentY; //0x0094
 			char pad_0098[4]; //0x0098
 			float Angle; //0x009C
-			Vector2<float> Scale; //0x00A0
+			float ScaleX; //0x00A0
+			float ScaleY; //0x00A4
+			char pad_00A8[4]; //0x00A8
 
 			virtual void Function0() {};
 			virtual void Draw(bool drawChildren) {};

@@ -15,7 +15,7 @@ namespace Patcher
 		{
 		public:
 			std::string text;
-			class CFont* Font; //0x00E0
+			class CFont *Font; //0x00E0
 			char pad_00E4[24]; //0x00E4
 			float pointZeroFour; //0x00FC
 			char pad_0100[8]; //0x0100
@@ -29,7 +29,9 @@ namespace Patcher
 			char pad_0124[8]; //0x0124
 			int eightI; //0x012C
 			char pad_0130[4]; //0x0130
-			int zerozerozeroone; //0x0134
+			bool dunno; //0x0134
+			bool Invisible; //0x0135
+			char pad_0136[2]; //0x0136
 			int onei; //0x0138
 			char pad_013C[28]; //0x013C
 
@@ -48,7 +50,7 @@ namespace Patcher
 			CTextObject(std::string text) : CRenderableTextureObject() {
 				Constructor(this);
 
-				this->text = text;
+				this->SetText(&text);
 				this->Font = Utils::GetGameInstance()->CFont;
 				this->Texture = Utils::GetFontTexture();
 			}
